@@ -37,18 +37,20 @@ pipeline {
 
            }
         }
-}
-}
+
+
         
-//         /*stage('SonarQube Analysis') {
-//             steps {
-//                 // Analyzing code.
-//                 withSonarQubeEnv('sonar'){
-//                     sh "mvn sonar:sonar"
-//                     }
-//             }
-//         }
-//         stage ('Artifactory Configuration') {
+     stage('SonarQube Analysis') {
+          steps {
+            // Analyzing code.
+                withSonarQubeEnv('sonar'){
+                  sh "mvn sonar:sonar"
+                     }
+             }
+       }
+}
+}
+//      /*   stage ('Artifactory Configuration') {
 //             steps {
 //                 rtServer (
 //                     id: "artifactory",
