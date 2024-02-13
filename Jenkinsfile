@@ -1,7 +1,10 @@
 pipeline {
     agent any
 
-
+    tools {
+        // Define Maven tool named 'Maven'
+        maven 'Maven'
+    }
 
 
     stages {
