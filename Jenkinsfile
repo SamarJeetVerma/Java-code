@@ -47,7 +47,10 @@ pipeline {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
-                  sh "mvn sonar:sonar"
+                  sh "mvn sonar:sonar \
+  -Dsonar.projectKey=my-code-test-1 \
+  -Dsonar.host.url=http://54.83.224.151/:9000 \
+  -Dsonar.login=1335996a79f164bf5b9993f5205c05ccc07a9ccc"
                      }
              }
        }
