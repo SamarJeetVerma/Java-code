@@ -81,6 +81,13 @@
        <artifactId>jstl</artifactId>
        <version>1.2</version>
     </dependency>
+
+    <dependency>
+<groupId>org.sonarsource.sonarqube</groupId>
+<artifactId>sonar-plugin-api</artifactId>
+<version>7.6</version>
+<scope>provided</scope>
+</dependency>
     
   </dependencies>
 
