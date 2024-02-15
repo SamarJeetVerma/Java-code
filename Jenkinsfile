@@ -107,27 +107,24 @@ pipeline {
                 }
             }
         }
-    }
+
+ 
+        
+        stage('Publish to aws'){
+            steps{
+                script{
+
+                  sh  'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.us-east-1.amazonaws.com'
+                    
+     
+                    
+                   sh 'docker push 876724398547.dkr.ecr.us-east-1.amazonaws.com/smvc:latest'
+                }
+            }
+        }
 }
-        
-//         stage('Publish to aws'){
-//             steps{
-//                 script{
-//                     sh 'aws configure set aws_access_key_id AKIA4YIGYVHJTLQFFDOJ'
-         
-//                     sh 'aws configure set aws_secret_access_key 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'
-         
-//                     sh 'aws configure set default.region ap-northeast-1'
-                    
-//                     sh 'aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.ap-northeast-1.amazonaws.com'
-                    
-//                     sh 'docker tag smvc:latest 876724398547.dkr.ecr.ap-northeast-1.amazonaws.com/jenkins_sam_aws:latest'
-                    
-//                     sh 'docker push 876724398547.dkr.ecr.ap-northeast-1.amazonaws.com/jenkins_sam_aws:latest'
-//                 }
-//             }
-//         }
-        
+}
+
 //         stage('aws'){
 //             steps{
 //                 script{
