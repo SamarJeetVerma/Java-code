@@ -1,10 +1,14 @@
 pipeline {
     agent any
 
-    environment {        
-        AWS_ACCESS_KEY_ID = credentials('aws_cred')        
-        AWS_SECRET_ACCESS_KEY = credentials('aws_cred')
-    }
+    
+
+        steps {                 
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_cred', 
+                              accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                              secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+    
+    
 
     tools {
         // Define Maven tool named 'Maven'
