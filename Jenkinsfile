@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {        
+        AWS_ACCESS_KEY_ID = credentials('aws_cred')        
+        AWS_SECRET_ACCESS_KEY = credentials('aws_cred')
+    }
+
     tools {
         // Define Maven tool named 'Maven'
         jdk 'JAVA_HOME'
