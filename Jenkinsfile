@@ -103,7 +103,7 @@ pipeline {
        stage('Build docker image'){
             steps{
                 script{
-                    sh 'sudo -n docker build -t smvc .'
+                    sh 'sudo docker build -t smvc .'
                 }
             }
         }
