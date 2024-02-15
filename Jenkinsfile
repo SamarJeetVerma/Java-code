@@ -59,7 +59,7 @@ pipeline {
              steps {
                  rtServer (
                      id: "artifactory",
-                     url: "http://192.168.56.103:8082/artifactory",
+                     url: "http://54.145.109.98:8082/artifactory",
 
                 )
 
@@ -85,7 +85,7 @@ pipeline {
                   def server = Artifactory.server 'artifactory'
                   def uploadSpec = """{
                      "files": [{
-                        "pattern": "/var/lib/jenkins/workspace/sonarqube-pipeline-1/target/SMVC.war",
+                        "pattern": "/var/lib/jenkins/workspace/Assignment-1/target/SMVC.war",
                         "target": "project-libs-snapshot-local"
                      }]
                   }"""
