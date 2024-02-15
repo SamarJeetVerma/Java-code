@@ -44,7 +44,7 @@ pipeline {
 
 
         
-     stage('SonarQube Analysis') {
+  /*   stage('SonarQube Analysis') {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
@@ -54,52 +54,51 @@ pipeline {
              }
        }
 }
-}
-//      /*   stage ('Artifactory Configuration') {
-//             steps {
-//                 rtServer (
-//                     id: "artifactory",
-//                     url: "http://192.168.56.103:8082/artifactory",
+}        */
+        stage ('Artifactory Configuration') {
+             steps {
+                 rtServer (
+                     id: "artifactory",
+                     url: "http://192.168.56.103:8082/artifactory",
 
+                )
 
-
-//                )
-
-
-
-//                rtMavenResolver (
-//                     id: 'maven-resolver',
-//                     serverId: 'artifactory',
-//                     releaseRepo: 'libs-release',
-//                     snapshotRepo: 'libs-snapshot'
-//                 )  
+              rtMavenResolver (
+                     id: 'maven-resolver',
+                     serverId: 'artifactory',
+                     releaseRepo: 'libs-release',
+                     snapshotRepo: 'libs-snapshot'
+                 )  
                  
-//                 rtMavenDeployer (
-//                     id: 'maven-deployer',
-//                     serverId: 'artifactory',
-//                     releaseRepo: 'libs-release-local',
-//                     snapshotRepo: 'libs-snapshot-local'
-//                 )
-//             }
-//         }
+                 rtMavenDeployer (
+                     id: 'maven-deployer',
+                     serverId: 'artifactory',
+                     releaseRepo: 'libs-release-local',
+                     snapshotRepo: 'libs-snapshot-local'
+                 )
+             }
+         }
         
-//         stage('upload') {
-//            steps {
-//               script {
-//                  def server = Artifactory.server 'artifactory'
-//                  def uploadSpec = """{
-//                     "files": [{
-//                        "pattern": "/var/lib/jenkins/workspace/sonarqube-pipeline-1/target/SMVC.war",
-//                        "target": "project-libs-snapshot-local"
-//                     }]
-//                  }"""
+         stage('upload') {
+            steps {
+               script {
+                  def server = Artifactory.server 'artifactory'
+                  def uploadSpec = """{
+                     "files": [{
+                        "pattern": "/var/lib/jenkins/workspace/sonarqube-pipeline-1/target/SMVC.war",
+                        "target": "project-libs-snapshot-local"
+                     }]
+                  }"""
 
 
 
-//                 server.upload(uploadSpec)
-//                }
-//             }
-//         }*/
+                 server.upload(uploadSpec)
+                }
+             }
+         }
+
+    }
+}
         
 //        stage('Build docker image'){
 //             steps{
