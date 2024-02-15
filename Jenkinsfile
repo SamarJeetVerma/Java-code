@@ -1,13 +1,5 @@
 pipeline {
     agent any
-
-    
-
-        steps {                 
-            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_cred', 
-                              accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
-                              secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
-    
     
 
     tools {
@@ -117,7 +109,13 @@ pipeline {
             }
         }
 
- 
+        stage('Aws_login'){
+            steps {                 
+                  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_cred', 
+                              accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                              secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+            }
+        }
         
         stage('Publish to aws'){
             steps{
@@ -125,7 +123,6 @@ pipeline {
 
                   sh  'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.us-east-1.amazonaws.com'
                     
-                   
                     
                    sh 'docker push 876724398547.dkr.ecr.us-east-1.amazonaws.com/smvc:latest'
                 }
