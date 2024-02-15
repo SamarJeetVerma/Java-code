@@ -110,12 +110,14 @@ pipeline {
         }
 
         stage('Aws_login'){
-            steps {                 
+            steps {  
+                script{
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_cred', 
                               accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                               secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
                 sh 'true'
             }
+        }
         }
         
         stage('Publish to aws'){
