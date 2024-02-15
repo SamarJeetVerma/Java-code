@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         // Define Maven tool named 'Maven'
+        jdk 'JAVA_HOME'
         maven 'Maven'
     }
 
