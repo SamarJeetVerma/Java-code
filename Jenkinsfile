@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
-
+    
     tools {
         // Define Maven tool named 'Maven'
         jdk 'JAVA_HOME'
@@ -115,22 +115,27 @@ pipeline {
                   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_cred', 
                               accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                               secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) 
+                    {
+                        sh  'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.us-east-1.amazonaws.com'
+                     
+                    }
+                    
                 sh 'true'
             }
         }
         }
         
-        stage('Publish to aws'){
-            steps{
-                script{
+        // stage('Publish to aws'){
+        //     steps{
+        //         script{
 
-                  sh  'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.us-east-1.amazonaws.com'
+        //           sh  'aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.us-east-1.amazonaws.com'
                     
                     
-                   sh 'docker push 876724398547.dkr.ecr.us-east-1.amazonaws.com/smvc:latest'
-                }
-            }
-        }
+        //            sh 'docker push 876724398547.dkr.ecr.us-east-1.amazonaws.com/smvc:latest'
+        //         }
+        //     }
+        // }
 }
 }
 
