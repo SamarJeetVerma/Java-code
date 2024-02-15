@@ -55,7 +55,7 @@ pipeline {
        }
 }
 }        */
-        stage ('Artifactory Configuration') {
+     /*   stage ('Artifactory Configuration') {
              steps {
                  rtServer (
                      id: "artifactory",
@@ -98,15 +98,17 @@ pipeline {
          }
 
     }
-}
+} */
         
-//        stage('Build docker image'){
-//             steps{
-//                 script{
-//                     sh 'sudo -n docker build -t smvc .'
-//                 }
-//             }
-//         }
+       stage('Build docker image'){
+            steps{
+                script{
+                    sh 'sudo -n docker build -t smvc .'
+                }
+            }
+        }
+    }
+}
         
 //         stage('Publish to aws'){
 //             steps{
