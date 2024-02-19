@@ -45,7 +45,7 @@ pipeline {
 
 
         
-     stage('SonarQube Analysis') {
+    /* stage('SonarQube Analysis') {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
@@ -56,13 +56,13 @@ pipeline {
             
           }
     }
-}
+}*/
         
-     /*   stage ('Artifactory Configuration') {
+        stage ('Artifactory Configuration') {
              steps {
                  rtServer (
                      id: "artifactory",
-                     url: "http://54.145.109.98:8082/artifactory",
+                     url: "http://localhost:8082/artifactory",
 
                 )
 
@@ -101,7 +101,7 @@ pipeline {
          }
 
     }
-} */
+} 
         
        /*stage('Build docker image'){
             steps{
