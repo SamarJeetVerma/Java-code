@@ -45,7 +45,7 @@ pipeline {
 
 
         
-  /*   stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
@@ -55,7 +55,7 @@ pipeline {
              }
        }
 }
-}        */
+}        
      /*   stage ('Artifactory Configuration') {
              steps {
                  rtServer (
