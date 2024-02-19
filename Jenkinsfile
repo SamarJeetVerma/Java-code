@@ -45,7 +45,7 @@ pipeline {
 
 
         
-     /*stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
@@ -54,7 +54,9 @@ pipeline {
                      }
               }
             
-          }*/
+          }
+    }
+}
         
      /*   stage ('Artifactory Configuration') {
              steps {
@@ -101,7 +103,7 @@ pipeline {
     }
 } */
         
-       stage('Build docker image'){
+       /*stage('Build docker image'){
             steps{
                 script{
                     sh 'docker build -t smvc .'
@@ -141,7 +143,7 @@ pipeline {
             }
         }
 }
-}  
+}  */
 
 //         stage('aws'){
 //             steps{
