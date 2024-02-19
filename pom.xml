@@ -88,11 +88,6 @@
 <version>7.6</version>
 <scope>provided</scope>
 </dependency>
-    <dependency>
-     <groupId>org.sonarsource.scanner.maven</groupId>
-         <artifactId>sonar-maven-plugin</artifactId>
-         <version>3.10.1.2781</version> 
-</dependency>
     
   </dependencies>
 
