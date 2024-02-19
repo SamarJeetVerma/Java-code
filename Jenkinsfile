@@ -45,20 +45,22 @@ pipeline {
 
 
         
-    /* stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
-                   sh "mvn sonar:sonar"
+                   //sh "mvn sonar:sonar"
                    //sh "mvn sonar:sonar -Dsonar.projectKey=my-code-test-2 -Dsonar.host.url=http://54.162.209.11:9000 -Dsonar.login=f5c44e4b9c7d15abdd971822a723dafb0ed4a3dc"
-                     }
+                     
+                   sh "mvn clean verify sonar:sonar -Dsonar.projectKey=my-code-test-1 -Dsonar.projectName='my-code-test-1' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_b63e2238a0637f7b246ed27a50bc30de71ee62fc"                   }
               }
             
           }
     }
-}*/
+}
         
-        stage ('Artifactory Configuration') {
+        
+        /*stage ('Artifactory Configuration') {
              steps {
                  rtServer (
                      id: "artifactory",
@@ -101,7 +103,7 @@ pipeline {
          }
 
     }
-} 
+} */
         
        /*stage('Build docker image'){
             steps{
