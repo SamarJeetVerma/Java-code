@@ -129,7 +129,6 @@
 <artifactId>sonar-packaging-maven-plugin</artifactId>
         </plugin>
        
-      </plugins>
        
       </plugins>
     </pluginManagement>
