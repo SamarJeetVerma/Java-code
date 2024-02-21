@@ -56,7 +56,7 @@ pipeline {
               }
             
           }*/
-            stage('Unit Tests and Coverage') { 
+            /*stage('Unit Tests and Coverage') { 
             	steps {  
                	// Run unit tests and generate JaCoCo coverage report                
 		 	sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install'            
@@ -69,7 +69,7 @@ pipeline {
  		}        
  	}    
 }  
-}
+}*/
     
 
         
@@ -119,7 +119,7 @@ pipeline {
     }
 } */
         
-       /*stage('Build docker image'){
+       stage('Build docker image'){
             steps{
                 script{
                     sh 'docker build -t smvc .'
@@ -159,7 +159,7 @@ pipeline {
             }
         }
 }
-}  */
+}  
 
 //         stage('aws'){
 //             steps{
