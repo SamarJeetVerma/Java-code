@@ -57,15 +57,17 @@ pipeline {
             
           }*/
             stage('Unit Tests and Coverage') { 
-            steps {  
-               // Run unit tests and generate JaCoCo coverage report                
-		 sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install'             }               			post {                
+            	steps {  
+               	// Run unit tests and generate JaCoCo coverage report                
+		 	sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install'            
+		}               			
+		    post {                
 				 always {                     
 		// Publish JaCoCo coverage report to SonarQube                     
 			jacoco(execPattern: '**/target/**.exec')                
  			}            
  		}        
- 	}     
+ 	}    
 }  
 }
     
