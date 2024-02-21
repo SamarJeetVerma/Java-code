@@ -1,5 +1,6 @@
-FROM tomcat:8.0.20-jre8
+FROM tomcat:8-jdk11-corretto
+#FROM tomcat:8.0.20-jre8
 RUN rm -rf /usr/local/tomcat/webapps/*
-COPY target/SMVC.war /usr/local/tomcat/webapps/SMVC.war
+COPY target/SMVC.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
 CMD ["catalina.sh","run"]
