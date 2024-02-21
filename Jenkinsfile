@@ -55,19 +55,8 @@ pipeline {
                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=my-code-test-1 -Dsonar.projectName='my-code-test-1' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_b63e2238a0637f7b246ed27a50bc30de71ee62fc"                   }
               }
             
-          }*/
-            /*stage('Unit Tests and Coverage') { 
-            	steps {  
-               	// Run unit tests and generate JaCoCo coverage report                
-		 	sh 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install'            
-		}               			
-		    post {                
-				 always {                     
-		// Publish JaCoCo coverage report to SonarQube                     
-			jacoco(execPattern: '**/target/**.exec')                
- 			}            
- 		}        
- 	}    
+          }
+           
 }  
 }*/
     
