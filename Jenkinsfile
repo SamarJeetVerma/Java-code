@@ -108,7 +108,7 @@ pipeline {
     }
 } */
         
-       stage('Build docker image'){
+       /*stage('Build docker image'){
             steps{
                 script{
                     sh 'docker build -t smvc .'
@@ -148,7 +148,25 @@ pipeline {
             }
         }
 }
-}  
+}  */
+       /* stage('Helm-deploy'){
+            steps{
+                script{
+                        withKubeConfig(caCertificate: '', clusterName: 'samar10.k8s.local', contextName: 'samar10.k8s.local', credentialsId: 'kube-config-file', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')
+            {
+                sh 'kubectl delete service my-app-1'
+                sh 'helm uninstall my-app-1'
+                sh 'helm install my-app-1 ./my-app-1'
+
+                sh 'kubectl delete service nginx'
+                sh 'helm uninstall nginx'
+                sh 'helm install nginx ./nginx'
+            }
+                }
+                }
+            }
+    }
+}*/
 
 //         stage('aws'){
 //             steps{
