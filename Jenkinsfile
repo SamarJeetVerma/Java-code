@@ -149,7 +149,7 @@ pipeline {
         }
 }
 }  */
-       /* stage('Helm-deploy'){
+        stage('Helm-deploy'){
             steps{
                 script{
                         withKubeConfig(caCertificate: '', clusterName: 'samar10.k8s.local', contextName: 'samar10.k8s.local', credentialsId: 'kube-config-file', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')
@@ -166,7 +166,7 @@ pipeline {
                 }
             }
     }
-}*/
+}
 
 //         stage('aws'){
 //             steps{
