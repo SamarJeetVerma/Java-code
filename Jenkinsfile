@@ -157,10 +157,19 @@ pipeline {
                 sh 'kubectl delete service my-app-1'
                 sh 'helm uninstall my-app-1'
                 sh 'helm install my-app-1 ./my-app-1'
-
-                sh 'kubectl delete service nginx'
+                
+                sh 'export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-app-1)'
+                sh 'export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")'
+                sh 'echo http://$NODE_IP:$NODE_PORT'
+                
+                sh 'kubectl delete service nginx'sh 'export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services my-app-1)'
+                sh 'export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")'
+                sh 'echo http://$NODE_IP:$NODE_PORT'
                 sh 'helm uninstall nginx'
                 sh 'helm install nginx ./nginx'
+                sh 'export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services nginx)'
+                sh 'export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")'
+                sh 'echo http://$NODE_IP:$NODE_PORT'
             }
                 }
                 }
