@@ -152,7 +152,7 @@ pipeline {
         stage('Helm-deploy'){
             steps{
                 script{
-                        withKubeConfig(caCertificate: '', clusterName: 'samar10.k8s.local', contextName: 'samar10.k8s.local', credentialsId: 'kube-config-file', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')
+                        withKubeConfig(caCertificate: '', clusterName: 'samar3.k8s.local', contextName: 'samar3.k8s.local', credentialsId: 'kube-config-file', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')
             {
                 sh 'kubectl delete service my-app-1'
                 sh 'helm uninstall my-app-1'
