@@ -175,22 +175,5 @@ pipeline {
     }
 }*/
 
-//         stage('aws'){
-//             steps{
-//                 script{
-                    
-         
-//                     sh 'ssh "-o StrictHostKeyChecking=no" -i "/opt/sam.pem" ec2-user@35.77.97.76 aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 876724398547.dkr.ecr.ap-northeast-1.amazonaws.com '
-                    
-//                     sh 'ssh "-o StrictHostKeyChecking=no" -i "/opt/sam.pem" ec2-user@35.77.97.76 docker pull 876724398547.dkr.ecr.ap-northeast-1.amazonaws.com/jenkins_sam_aws:latest'
-                    
-//                     sh 'ssh "-o StrictHostKeyChecking=no" -i "/opt/sam.pem" ec2-user@35.77.97.76 docker run -p 8087:8080  876724398547.dkr.ecr.ap-northeast-1.amazonaws.com/jenkins_sam_aws:latest'
-//                 }
-//             }
-//         }
 
-
-       
-// }
-// }
 
