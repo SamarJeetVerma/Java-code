@@ -52,7 +52,7 @@ pipeline {
                    //sh "mvn sonar:sonar"
                    //sh "mvn sonar:sonar -Dsonar.projectKey=my-code-test-2 -Dsonar.host.url=http://54.162.209.11:9000 -Dsonar.login=f5c44e4b9c7d15abdd971822a723dafb0ed4a3dc"
                      
-                   sh "mvn clean verify sonar:sonar -Dsonar.projectKey=my-code-test-1 -Dsonar.projectName='my-code-test-1' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_b63e2238a0637f7b246ed27a50bc30de71ee62fc"                   }
+                   sh "mvn clean verify sonar:sonar -Dsonar.projectKey=my-code-test-1 -Dsonar.projectName='my-code-test-1' -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_d7248bf2e64a38dc66124d6eac926db89604e6c0"                   }
               }
             
           }
