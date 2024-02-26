@@ -45,7 +45,7 @@ pipeline {
 
 
         
-    /* stage('SonarQube Analysis') {
+     stage('SonarQube Analysis') {
           steps {
             // Analyzing code.
                 withSonarQubeEnv('Sonarqube-server-7.6'){
@@ -57,13 +57,13 @@ pipeline {
             
           }
            
-}  
-}*/
+
+
     
 
         
         
-        /*stage ('Artifactory Configuration') {
+        stage ('Artifactory Configuration') {
              steps {
                  rtServer (
                      id: "artifactory",
@@ -106,7 +106,7 @@ pipeline {
          }
 
     }
-} */
+} 
         
        /*stage('Build docker image'){
             steps{
@@ -149,7 +149,7 @@ pipeline {
         }
 }
 }  */
-        stage('Helm-deploy'){
+       /* stage('Helm-deploy'){
             steps{
                 script{
                         withKubeConfig(caCertificate: '', clusterName: 'samar3.k8s.local', contextName: 'samar3.k8s.local', credentialsId: 'kube-config-file', namespace: '', restrictKubeConfigAccess: false, serverUrl: '')
@@ -173,7 +173,7 @@ pipeline {
                 }
             }
     }
-}
+}*/
 
 //         stage('aws'){
 //             steps{
